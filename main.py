@@ -1,5 +1,6 @@
 from dash import Dash, dcc, html, Input, Output, State, dash_table, ctx
-from data_eng import wrapper
+import wrapper
+import prediction
 import plotly.graph_objs as go
 import pandas as pd
 from datetime import datetime, date, timedelta
@@ -24,8 +25,9 @@ app.layout = html.Div([
 )
 def weather(clicks):
     if "run-weather" == ctx.triggered_id:
-        temp = wrapper.api_request()
-        return ["Tomorrow's High Temperature will be: " + str(temp)] # Weather data
+        temp = prediction.predict()
+        return ["According to Intel Support and Wes, Tomorrow's High Temperature will be: " + str(int(temp))]
+                # html.Div([dash_table.DataTable(temp)])] # Weather data
 
 
 if __name__ == '__main__':
