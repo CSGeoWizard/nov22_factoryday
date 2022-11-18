@@ -1,10 +1,5 @@
 from dash import Dash, dcc, html, Input, Output, State, dash_table, ctx
-import wrapper
 import prediction
-import plotly.graph_objs as go
-import pandas as pd
-from datetime import datetime, date, timedelta
-import json
 
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']

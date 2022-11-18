@@ -1,4 +1,4 @@
-import pandas as pd
+
 from prophet import Prophet
 import wrapper
 
@@ -10,10 +10,6 @@ def predict():
     # ds is date time stamp - YYYY-MM-DD HH:MM:SS
     # y is the measurement to forecast - temp
 
-
-    # df = pd.read_csv(data)
-    # df.head()
-
     m = Prophet()
     m.fit(data)
 
@@ -24,4 +20,5 @@ def predict():
     forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
     final = forecast.yhat.tail(1).values[0]
     temp = (final - 273.15) * (9.0 / 5) + 32
+
     return temp
